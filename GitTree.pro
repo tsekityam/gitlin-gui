@@ -18,3 +18,8 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES +=
+
+unix: CONFIG += link_pkgconfig
+unix: CONFIG += appmenu-qt5
