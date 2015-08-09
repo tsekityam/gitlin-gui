@@ -21,6 +21,9 @@
   </property>
   <widget class="QWidget" name="windowCentralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -396,6 +399,68 @@ QFrame {
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="Line" name="line_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>1</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="topButtonRepoSettings_2">
+         <property name="minimumSize">
+          <size>
+           <width>64</width>
+           <height>64</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>64</width>
+           <height>64</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Terminal</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res/res.qrc">
+           <normaloff>:/res/img/barIcon_newRepo</normaloff>:/res/img/barIcon_newRepo</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>
@@ -410,7 +475,7 @@ QFrame {
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="tabsClosable">
        <bool>true</bool>
@@ -418,7 +483,7 @@ QFrame {
       <property name="tabBarAutoHide">
        <bool>false</bool>
       </property>
-      <widget class="RepoControlWidget" name="contentTabWidgetPage1" native="true">
+      <widget class="RepoControlWidget" name="contentTabWidgetPage1">
        <attribute name="title">
         <string>Blank</string>
        </attribute>
