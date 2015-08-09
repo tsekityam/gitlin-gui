@@ -47,13 +47,14 @@
 	border-bottom: 1px solid rgba(51, 51, 51, 255);
 }
 
-QPushButton {
+QToolButton {
 	border: none;
 	color: white;
+	text-align: center bottom;
 }
 
-QPushButton:pressed {
-	background-color: rgba(0, 0, 0, 48);
+QToolButton:pressed {
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(51, 51, 51, 0), stop:0.505208 rgba(51, 51, 51, 255), stop:1 rgba(51, 51, 51, 0));
 }
 
 QFrame {
@@ -62,19 +63,19 @@ QFrame {
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="leftMargin">
-        <number>0</number>
+        <number>5</number>
        </property>
        <property name="topMargin">
-        <number>0</number>
+        <number>3</number>
        </property>
        <property name="rightMargin">
-        <number>0</number>
+        <number>5</number>
        </property>
        <property name="bottomMargin">
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="topButtonNewOrClone">
+        <widget class="QToolButton" name="topButtonNewOrClone">
          <property name="minimumSize">
           <size>
            <width>72</width>
@@ -92,11 +93,21 @@ QFrame {
            <pointsize>9</pointsize>
           </font>
          </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
          <property name="text">
           <string>New / Clone</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res/res.qrc">
+           <normaloff>:/res/img/barIcon_newRepo</normaloff>:/res/img/barIcon_newRepo</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
          </property>
         </widget>
        </item>
@@ -126,7 +137,7 @@ QFrame {
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="topButtonCommit">
+        <widget class="QToolButton" name="topButtonCommit">
          <property name="minimumSize">
           <size>
            <width>64</width>
@@ -143,17 +154,27 @@ QFrame {
           <font>
            <pointsize>9</pointsize>
           </font>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
          </property>
          <property name="text">
           <string>Commit</string>
          </property>
+         <property name="icon">
+          <iconset resource="res/res.qrc">
+           <normaloff>:/res/img/barIcon_newRepo</normaloff>:/res/img/barIcon_newRepo</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="topButtonPush">
+        <widget class="QToolButton" name="topButtonPush">
          <property name="minimumSize">
           <size>
            <width>64</width>
@@ -170,17 +191,27 @@ QFrame {
           <font>
            <pointsize>9</pointsize>
           </font>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
          </property>
          <property name="text">
           <string>Push</string>
          </property>
+         <property name="icon">
+          <iconset resource="res/res.qrc">
+           <normaloff>:/res/img/barIcon_newRepo</normaloff>:/res/img/barIcon_newRepo</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="topButtonPull">
+        <widget class="QToolButton" name="topButtonPull">
          <property name="minimumSize">
           <size>
            <width>64</width>
@@ -198,11 +229,21 @@ QFrame {
            <pointsize>9</pointsize>
           </font>
          </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
          <property name="text">
           <string>Pull</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res/res.qrc">
+           <normaloff>:/res/img/barIcon_newRepo</normaloff>:/res/img/barIcon_newRepo</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
          </property>
         </widget>
        </item>
@@ -232,7 +273,7 @@ QFrame {
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="topButtonStash">
+        <widget class="QToolButton" name="topButtonStash">
          <property name="minimumSize">
           <size>
            <width>64</width>
@@ -249,17 +290,27 @@ QFrame {
           <font>
            <pointsize>9</pointsize>
           </font>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
          </property>
          <property name="text">
           <string>Stash</string>
          </property>
+         <property name="icon">
+          <iconset resource="res/res.qrc">
+           <normaloff>:/res/img/barIcon_newRepo</normaloff>:/res/img/barIcon_newRepo</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="topButtonDiscard">
+        <widget class="QToolButton" name="topButtonDiscard">
          <property name="minimumSize">
           <size>
            <width>64</width>
@@ -277,11 +328,21 @@ QFrame {
            <pointsize>9</pointsize>
           </font>
          </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
          <property name="text">
           <string>Discard</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res/res.qrc">
+           <normaloff>:/res/img/barIcon_newRepo</normaloff>:/res/img/barIcon_newRepo</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
          </property>
         </widget>
        </item>
@@ -299,7 +360,7 @@ QFrame {
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="topButtonRepoSettings">
+        <widget class="QToolButton" name="topButtonRepoSettings">
          <property name="minimumSize">
           <size>
            <width>108</width>
@@ -317,14 +378,21 @@ QFrame {
            <pointsize>9</pointsize>
           </font>
          </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="autoFillBackground">
-          <bool>false</bool>
-         </property>
          <property name="text">
           <string>Repository Settings</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res/res.qrc">
+           <normaloff>:/res/img/barIcon_newRepo</normaloff>:/res/img/barIcon_newRepo</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
          </property>
         </widget>
        </item>
@@ -429,6 +497,8 @@ QFrame {
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="res/res.qrc"/>
+ </resources>
  <connections/>
 </ui>

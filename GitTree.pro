@@ -19,7 +19,10 @@ HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
 
-RESOURCES +=
+RESOURCES += \
+    res/res.qrc
 
 unix: CONFIG += link_pkgconfig
 unix: CONFIG += appmenu-qt5
+
+DISTFILES +=
