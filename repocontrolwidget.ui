@@ -110,7 +110,7 @@
        </property>
        <item>
         <property name="text">
-         <string>0 Files</string>
+         <string>Files</string>
         </property>
         <property name="flags">
          <set>ItemIsSelectable|ItemIsEnabled</set>

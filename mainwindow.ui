@@ -473,7 +473,7 @@ QFrame {
          </property>
          <property name="icon">
           <iconset resource="res/res.qrc">
-           <normaloff>:/res/img/barIcon_newRepo</normaloff>:/res/img/barIcon_newRepo</iconset>
+           <normaloff>:/res/img/barIcon_terminal</normaloff>:/res/img/barIcon_terminal</iconset>
          </property>
          <property name="iconSize">
           <size>
