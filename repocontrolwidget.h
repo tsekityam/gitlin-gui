@@ -17,6 +17,8 @@ public:
 
 private:
     Ui::RepoControlWidget *m_ui;
+
+    void initializeUi();
 };
 
 #endif // REPOCONTROLWIDGET_H

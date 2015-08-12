@@ -20,11 +20,18 @@ public slots:
     void slot_cloneRepo();
     void slot_addNewRepo();
     void slot_addRepoFromWorkingCopy();
+    void slot_commit();
+    void slot_push();
+    void slot_pull();
+    void slot_stash();
+    void slot_discard();
+    void slot_openRepoSettings();
+    void slot_openTerminal();
 
 private:
     Ui::MainWindow *m_ui;
 
-    void initTopBar();
+    void initializeUi();
 };
 
 #endif // MAINWINDOW_H

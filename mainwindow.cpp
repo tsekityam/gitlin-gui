@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     m_ui->setupUi(this);
 
-    initTopBar();
+    initializeUi();
 }
 
 MainWindow::~MainWindow()
@@ -15,9 +15,24 @@ MainWindow::~MainWindow()
     delete m_ui;
 }
 
-void MainWindow::initTopBar()
+void MainWindow::initializeUi()
 {
-    // Add menu for topButtonAddRepoExtra
+    // Top Bar
+        // buttons
+    QObject::connect(m_ui->topButtonNewOrCloneRepo, SIGNAL(clicked(bool)), this, SLOT(slot_cloneRepo()));
+
+    QObject::connect(m_ui->topButtonCommit, SIGNAL(clicked(bool)), this, SLOT(slot_commit()));
+    QObject::connect(m_ui->topButtonPush, SIGNAL(clicked(bool)), this, SLOT(slot_push()));
+    QObject::connect(m_ui->topButtonPull, SIGNAL(clicked(bool)), this, SLOT(slot_pull()));
+
+    QObject::connect(m_ui->topButtonStash, SIGNAL(clicked(bool)), this, SLOT(slot_stash()));
+    QObject::connect(m_ui->topButtonDiscard, SIGNAL(clicked(bool)), this, SLOT(slot_discard()));
+
+    QObject::connect(m_ui->topButtonRepoSettings, SIGNAL(clicked(bool)), this, SLOT(slot_openRepoSettings()));
+
+    QObject::connect(m_ui->topButtonTerminal, SIGNAL(clicked(bool)), this, SLOT(slot_openTerminal()));
+
+        // menu for topButtonAddRepoExtra
     QMenu *menu = new QMenu(m_ui->topButtonAddRepoExtra);
 
     QAction *action = new QAction("Open from Repository Manager...", menu);
@@ -59,4 +74,39 @@ void MainWindow::slot_addNewRepo()
 void MainWindow::slot_addRepoFromWorkingCopy()
 {
     qDebug("slot_addRepoFromWorkingCopy");
+}
+
+void MainWindow::slot_commit()
+{
+
+}
+
+void MainWindow::slot_push()
+{
+    ;
+}
+
+void MainWindow::slot_pull()
+{
+    ;
+}
+
+void MainWindow::slot_stash()
+{
+    ;
+}
+
+void MainWindow::slot_discard()
+{
+    ;
+}
+
+void MainWindow::slot_openRepoSettings()
+{
+    ;
+}
+
+void MainWindow::slot_openTerminal()
+{
+    ;
 }
