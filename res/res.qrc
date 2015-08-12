@@ -2,5 +2,6 @@
     <qresource prefix="/res/img">
         <file alias="barIcon_newRepo">bar_newRepo.svg</file>
         <file alias="barIcon_terminal">bar_terminal.svg</file>
+        <file alias="barIcon_repoSettings">bar_repoSettings.svg</file>
     </qresource>
 </RCC>
