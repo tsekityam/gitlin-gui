@@ -521,14 +521,9 @@ QFrame {
       <property name="tabBarAutoHide">
        <bool>false</bool>
       </property>
-      <widget class="RepoControlWidget" name="contentTabWidgetPage1">
+      <widget class="QWidget" name="contentTab_start">
        <attribute name="title">
-        <string>Blank</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab">
-       <attribute name="title">
-        <string>Repo</string>
+        <string>Page</string>
        </attribute>
       </widget>
      </widget>
@@ -628,14 +623,6 @@ QFrame {
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>RepoControlWidget</class>
-   <extends>QWidget</extends>
-   <header>repocontrolwidget.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="res/res.qrc"/>
  </resources>

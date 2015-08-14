@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <git2.h>
+#include "repocontrolwidget.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -66,6 +66,8 @@ void MainWindow::slot_addRepoFromManager()
 void MainWindow::slot_cloneRepo()
 {
     qDebug("slot_cloneRepo");
+
+    this->addRepoTab(NULL);
 }
 
 void MainWindow::slot_addNewRepo()
@@ -76,6 +78,9 @@ void MainWindow::slot_addNewRepo()
 void MainWindow::slot_addRepoFromWorkingCopy()
 {
     qDebug("slot_addRepoFromWorkingCopy");
+
+    GITLRepo *repo = new GITLRepo("Working Copy");
+    this->addRepoTab(repo);
 }
 
 void MainWindow::slot_commit()
@@ -111,4 +116,17 @@ void MainWindow::slot_openRepoSettings()
 void MainWindow::slot_openTerminal()
 {
     ;
+}
+
+void MainWindow::addRepoTab(GITLRepo *repo)
+{
+    RepoControlWidget *repoTab = new RepoControlWidget(repo, this);
+    const QString *tabTitle = repo->getName();
+    m_ui->contentTabWidget->addTab(repoTab, tabTitle ? *tabTitle : "New Repository");
+    m_ui->contentTabWidget->setCurrentWidget(repoTab);
+
+    int indexOfStartPage = m_ui->contentTabWidget->indexOf(m_ui->contentTab_start);
+    if (indexOfStartPage != -1) {
+        m_ui->contentTabWidget->removeTab(indexOfStartPage);
+    }
 }

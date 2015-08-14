@@ -6,3 +6,8 @@ GITLRepo::GITLRepo(const QString &name)
 {
     _name = name;
 }
+
+QString *GITLRepo::getName()
+{
+    return &_name;
+}

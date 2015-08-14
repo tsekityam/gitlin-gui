@@ -7,6 +7,8 @@ namespace Ui {
 class MainWindow;
 }
 
+class GITLRepo;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -32,6 +34,8 @@ private:
     Ui::MainWindow *m_ui;
 
     void initializeUi();
+
+    void addRepoTab(GITLRepo *repo);
 };
 
 #endif // MAINWINDOW_H
