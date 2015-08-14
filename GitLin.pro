@@ -29,3 +29,8 @@ unix: CONFIG += link_pkgconfig
 unix: CONFIG += appmenu-qt5
 
 DISTFILES +=
+
+unix:!macx: LIBS += -L$$PWD/lib/ -lgit2
+
+INCLUDEPATH += $$PWD/lib/include/libgit2
+DEPENDPATH += $$PWD/lib/include/libgit2
