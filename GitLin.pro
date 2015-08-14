@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    repocontrolwidget.cpp
+    repocontrolwidget.cpp \
+    gitl_repo.cpp
 
 HEADERS  += mainwindow.h \
-    repocontrolwidget.h
+    repocontrolwidget.h \
+    gitl_repo.h
 
 FORMS    += mainwindow.ui \
     repocontrolwidget.ui
