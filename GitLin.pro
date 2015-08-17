@@ -15,14 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     repocontrolwidget.cpp \
-    gitl_repo.cpp
+    gitl_repo.cpp \
+    newrepoconfigwidget.cpp
 
 HEADERS  += mainwindow.h \
     repocontrolwidget.h \
-    gitl_repo.h
+    gitl_repo.h \
+    newrepoconfigwidget.h
 
 FORMS    += mainwindow.ui \
-    repocontrolwidget.ui
+    repocontrolwidget.ui \
+    newrepoconfigwidget.ui
 
 RESOURCES += \
     res/res.qrc

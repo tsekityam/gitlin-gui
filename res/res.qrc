@@ -4,5 +4,6 @@
         <file alias="barIcon_terminal">bar_terminal.svg</file>
         <file alias="barIcon_repoSettings">bar_repoSettings.svg</file>
         <file alias="icon.png">icon_gitlin.png</file>
+        <file alias="tabIcon_repo_clone">tabIcon_repo_clone.svg</file>
     </qresource>
 </RCC>

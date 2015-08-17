@@ -523,7 +523,7 @@ QFrame {
       </property>
       <widget class="QWidget" name="contentTab_start">
        <attribute name="title">
-        <string>Page</string>
+        <string>Start Page</string>
        </attribute>
       </widget>
      </widget>

@@ -56,6 +56,9 @@ void MainWindow::initializeUi()
     menu->addAction(action);
 
     m_ui->topButtonAddRepoExtra->setMenu(menu);
+
+    // Content Tab Widget
+    m_ui->contentTabWidget->tabBar()->tabButton(0, QTabBar::RightSide)->resize(0, 0);
 }
 
 void MainWindow::slot_addRepoFromManager()
