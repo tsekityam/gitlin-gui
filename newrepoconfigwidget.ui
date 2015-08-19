@@ -228,16 +228,9 @@ QTabBar::tab {
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_cancel">
-        <property name="text">
-         <string>Cancel</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_ok">
-        <property name="text">
-         <string>OK</string>
+       <widget class="QDialogButtonBox" name="buttonBox_ok">
+        <property name="standardButtons">
+         <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
         </property>
        </widget>
       </item>
