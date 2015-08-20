@@ -3,11 +3,11 @@
 
 #include "qstackedlayout.h"
 
-RepoControlWidget::RepoControlWidget(const GITLRepo &repo, QWidget *parent) :
+RepoControlWidget::RepoControlWidget(const GITLRepo *repo, QWidget *parent) :
     QWidget(parent),
     m_ui(new Ui::RepoControlWidget)
 {
-    m_repo = &repo;
+    m_repo = repo;
 
     initializeUi();
 }

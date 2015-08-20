@@ -35,7 +35,7 @@ private:
 
     void initializeUi();
 
-    void addRepoTab(GITLRepo &repo);
+    void addRepoTab(GITLRepo *repo);
 };
 
 #endif // MAINWINDOW_H

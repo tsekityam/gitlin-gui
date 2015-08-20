@@ -15,6 +15,9 @@ public:
     explicit NewRepoConfigWidget(QWidget *parent = 0);
     ~NewRepoConfigWidget();
 
+private slots:
+//    void okClicked();
+
 private:
     Ui::NewRepoConfigWidget *m_ui;
 

@@ -71,7 +71,7 @@ void MainWindow::slot_cloneRepo()
     qDebug("slot_cloneRepo");
 
     GITLRepo *repo = NULL;
-    this->addRepoTab(*repo);
+    this->addRepoTab(repo);
 }
 
 void MainWindow::slot_addNewRepo()
@@ -84,7 +84,7 @@ void MainWindow::slot_addRepoFromWorkingCopy()
     qDebug("slot_addRepoFromWorkingCopy");
 
     GITLRepo *repo = new GITLRepo("Working Copy");
-    this->addRepoTab(*repo);
+    this->addRepoTab(repo);
 }
 
 void MainWindow::slot_commit()
@@ -122,10 +122,10 @@ void MainWindow::slot_openTerminal()
     ;
 }
 
-void MainWindow::addRepoTab(GITLRepo &repo)
+void MainWindow::addRepoTab(GITLRepo *repo)
 {
     RepoControlWidget *repoTab = new RepoControlWidget(repo, this);
-    const QString *tabTitle = repo.getName();
+    const QString *tabTitle = repo->getName();
     m_ui->contentTabWidget->addTab(repoTab, tabTitle ? *tabTitle : "New Repository");
     m_ui->contentTabWidget->setCurrentWidget(repoTab);
 
