@@ -23,6 +23,13 @@ private:
     Ui::RepoControlWidget *m_ui;
 
     void initializeUi();
+
+signals:
+    void closeRequested(QWidget *thisObject);
+
+private slots:
+    void slot_newReopCancelled();
+
 };
 
 #endif // REPOCONTROLWIDGET_H

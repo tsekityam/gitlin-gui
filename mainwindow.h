@@ -17,6 +17,14 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private:
+    Ui::MainWindow *m_ui;
+
+    void initializeUi();
+
+    void addRepoTab(GITLRepo *repo);
+    void removeRepoTab(int index);
+
 public slots:
     void slot_addRepoFromManager();
     void slot_cloneRepo();
@@ -30,12 +38,8 @@ public slots:
     void slot_openRepoSettings();
     void slot_openTerminal();
 
-private:
-    Ui::MainWindow *m_ui;
-
-    void initializeUi();
-
-    void addRepoTab(GITLRepo *repo);
+    void slot_closeRepoTab(const int index);
+    void slot_closeRepoTab(QWidget *widget);
 };
 
 #endif // MAINWINDOW_H

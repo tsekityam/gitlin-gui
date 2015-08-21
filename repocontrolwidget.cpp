@@ -36,6 +36,7 @@ void RepoControlWidget::initializeUi()
     stackedLayout->setStackingMode(QStackedLayout::StackAll);
     if (!m_repo) {
         stackedLayout->addWidget(m_ui->page_newRepo);
+        QObject::connect(m_ui->newRepoWidget, SIGNAL(cancelled()), this, SLOT(slot_newReopCancelled()));
     } else {
         m_ui->page_newRepo->setHidden(true);
     }
@@ -50,4 +51,9 @@ void RepoControlWidget::initializeUi()
 
     // New Repo Page
     m_ui->newRepoWidget->setWindowFlags(Qt::SubWindow);
+}
+
+void RepoControlWidget::slot_newReopCancelled()
+{
+    emit closeRequested((QWidget *)this);
 }

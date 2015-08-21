@@ -59,6 +59,7 @@ void MainWindow::initializeUi()
 
     // Content Tab Widget
     m_ui->contentTabWidget->tabBar()->tabButton(0, QTabBar::RightSide)->resize(0, 0);
+    QObject::connect(m_ui->contentTabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(slot_closeRepoTab(int)));
 }
 
 void MainWindow::slot_addRepoFromManager()
@@ -122,9 +123,25 @@ void MainWindow::slot_openTerminal()
     ;
 }
 
+void MainWindow::slot_closeRepoTab(const int index)
+{
+    removeRepoTab(index);
+}
+
+void MainWindow::slot_closeRepoTab(QWidget *widget)
+{
+    int index = m_ui->contentTabWidget->indexOf(widget);
+    if (index == -1)
+        return;
+
+    removeRepoTab(index);
+}
+
 void MainWindow::addRepoTab(GITLRepo *repo)
 {
-    RepoControlWidget *repoTab = new RepoControlWidget(repo, this);
+    RepoControlWidget *repoTab = new RepoControlWidget(repo);
+    QObject::connect(repoTab, SIGNAL(closeRequested(QWidget*)), this, SLOT(slot_closeRepoTab(QWidget*)));
+
     const QString *tabTitle = repo->getName();
     m_ui->contentTabWidget->addTab(repoTab, tabTitle ? *tabTitle : "New Repository");
     m_ui->contentTabWidget->setCurrentWidget(repoTab);
@@ -132,5 +149,18 @@ void MainWindow::addRepoTab(GITLRepo *repo)
     int indexOfStartPage = m_ui->contentTabWidget->indexOf(m_ui->contentTab_start);
     if (indexOfStartPage != -1) {
         m_ui->contentTabWidget->removeTab(indexOfStartPage);
+        m_ui->contentTabWidget->setMovable(true);
+    }
+}
+
+void MainWindow::removeRepoTab(int index)
+{
+    m_ui->contentTabWidget->removeTab(index);
+
+    if (m_ui->contentTabWidget->count() == 0) {
+        m_ui->contentTabWidget->addTab(m_ui->contentTab_start, "Start Page");
+        m_ui->contentTabWidget->tabBar()->tabButton(0, QTabBar::RightSide)->resize(0, 0);
+
+        m_ui->contentTabWidget->setMovable(false);
     }
 }

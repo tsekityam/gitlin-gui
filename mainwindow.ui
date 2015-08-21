@@ -580,6 +580,9 @@ QFrame {
       <property name="currentIndex">
        <number>0</number>
       </property>
+      <property name="elideMode">
+       <enum>Qt::ElideNone</enum>
+      </property>
       <property name="tabsClosable">
        <bool>true</bool>
       </property>
