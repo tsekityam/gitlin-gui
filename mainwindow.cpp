@@ -65,27 +65,30 @@ void MainWindow::initializeUi()
 void MainWindow::slot_addRepoFromManager()
 {
     qDebug("slot_addRepoFromManager");
+
+    GITLRepo *repo = new GITLRepo("Manager Repo");
+    this->addRepoTab(repo);
 }
 
 void MainWindow::slot_cloneRepo()
 {
     qDebug("slot_cloneRepo");
 
-    GITLRepo *repo = NULL;
-    this->addRepoTab(repo);
+    this->addRepoTab(NULL, CLONE);
 }
 
 void MainWindow::slot_addNewRepo()
 {
     qDebug("slot_addNewRepo");
+
+    this->addRepoTab(NULL, LOCAL_FILES);
 }
 
 void MainWindow::slot_addRepoFromWorkingCopy()
 {
     qDebug("slot_addRepoFromWorkingCopy");
 
-    GITLRepo *repo = new GITLRepo("Working Copy");
-    this->addRepoTab(repo);
+    this->addRepoTab(NULL, WORKING_COPY);
 }
 
 void MainWindow::slot_commit()
@@ -137,10 +140,11 @@ void MainWindow::slot_closeRepoTab(QWidget *widget)
     removeRepoTab(index);
 }
 
-void MainWindow::addRepoTab(GITLRepo *repo)
+void MainWindow::addRepoTab(GITLRepo *repo, int newRepoWay)
 {
     RepoControlWidget *repoTab = new RepoControlWidget(repo);
     QObject::connect(repoTab, SIGNAL(closeRequested(QWidget*)), this, SLOT(slot_closeRepoTab(QWidget*)));
+    repoTab->setNewRepoPage((NewRepoWay)newRepoWay);
 
     const QString *tabTitle = repo->getName();
     m_ui->contentTabWidget->addTab(repoTab, tabTitle ? *tabTitle : "New Repository");

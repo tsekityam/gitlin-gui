@@ -25,6 +25,26 @@ void NewRepoConfigWidget::initializeUi()
     QObject::connect(m_ui->buttonBox_ok, SIGNAL(rejected()), this, SLOT(slot_cancel()));
 }
 
+void NewRepoConfigWidget::setNewRepoPage(NewRepoWay way)
+{
+    m_ui->tabWidget_root->setCurrentIndex(way);
+//    switch (way) {
+//    case CLONE:
+//        m_ui->tabWidget_root->setCurrentIndex(0);
+//        break;
+//    case WORKING_COPY:
+//        m_ui->tabWidget_root->setCurrentIndex(1);
+//        break;
+//    case LOCAL_FILES:
+//        m_ui->tabWidget_root->setCurrentIndex(2);
+//        break;
+//    default:
+//        break;
+//    }
+}
+
+// SLOTS
+
 void NewRepoConfigWidget::slot_ok()
 {
 

@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "newrepoconfigwidget.h"
+
 #include <gitl_repo.h>
 
 namespace Ui {
@@ -18,6 +20,8 @@ public:
     explicit RepoControlWidget(QWidget *parent = 0);
     ~RepoControlWidget();
 
+    void setNewRepoPage(NewRepoWay way);
+
 private:
     const GITLRepo *m_repo;
     Ui::RepoControlWidget *m_ui;
@@ -25,7 +29,7 @@ private:
     void initializeUi();
 
 signals:
-    void closeRequested(QWidget *thisObject);
+    void closeRequested(QWidget *thisWidget);
 
 private slots:
     void slot_newReopCancelled();

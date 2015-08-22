@@ -22,7 +22,7 @@ private:
 
     void initializeUi();
 
-    void addRepoTab(GITLRepo *repo);
+    void addRepoTab(GITLRepo *repo, int newRepoWay = 0);
     void removeRepoTab(int index);
 
 public slots:

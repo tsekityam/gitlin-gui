@@ -53,6 +53,13 @@ void RepoControlWidget::initializeUi()
     m_ui->newRepoWidget->setWindowFlags(Qt::SubWindow);
 }
 
+void RepoControlWidget::setNewRepoPage(NewRepoWay way)
+{
+    m_ui->newRepoWidget->setNewRepoPage(way);
+}
+
+// SLOTS
+
 void RepoControlWidget::slot_newReopCancelled()
 {
     emit closeRequested((QWidget *)this);
