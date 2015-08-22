@@ -155,7 +155,9 @@ void MainWindow::addRepoTab(GITLRepo *repo)
 
 void MainWindow::removeRepoTab(int index)
 {
+    QWidget *tabWidget = m_ui->contentTabWidget->widget(index);
     m_ui->contentTabWidget->removeTab(index);
+    delete tabWidget;
 
     if (m_ui->contentTabWidget->count() == 0) {
         m_ui->contentTabWidget->addTab(m_ui->contentTab_start, "Start Page");
