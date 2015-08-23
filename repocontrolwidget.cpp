@@ -32,7 +32,7 @@ void RepoControlWidget::initializeUi()
 {
     m_ui->setupUi(this);
 
-    QStackedLayout *stackedLayout = new QStackedLayout(this);
+    QStackedLayout *stackedLayout = new QStackedLayout(m_ui->stacked_root);
     stackedLayout->setStackingMode(QStackedLayout::StackAll);
     if (!m_repo) {
         stackedLayout->addWidget(m_ui->page_newRepo);
