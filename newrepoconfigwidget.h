@@ -39,6 +39,9 @@ signals:
 private slots:
     void slot_ok();
     void slot_cancel();
+
+    // Clone Page
+    void slot_testCloneRemote();
 };
 
 #endif // NEWREPOCONFIGWIDGET_H

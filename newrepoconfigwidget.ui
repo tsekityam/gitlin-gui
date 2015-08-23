@@ -100,6 +100,9 @@ QTabBar::tab {
               <height>26</height>
              </size>
             </property>
+            <property name="text">
+             <string>https://github.com/wonson/gitlin-gui.git</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -112,6 +115,19 @@ QTabBar::tab {
             </property>
             <property name="text">
              <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_clone_src_test">
+            <property name="maximumSize">
+             <size>
+              <width>48</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Test</string>
             </property>
            </widget>
           </item>

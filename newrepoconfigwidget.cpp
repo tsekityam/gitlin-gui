@@ -1,6 +1,8 @@
 #include "newrepoconfigwidget.h"
 #include "ui_newrepoconfigwidget.h"
 
+#include <QMessageBox>
+
 NewRepoConfigWidget::NewRepoConfigWidget(QWidget *parent) :
     QWidget(parent),
     m_ui(new Ui::NewRepoConfigWidget)
@@ -23,24 +25,13 @@ void NewRepoConfigWidget::initializeUi()
 
     QObject::connect(m_ui->buttonBox_ok, SIGNAL(accepted()), this, SLOT(slot_ok()));
     QObject::connect(m_ui->buttonBox_ok, SIGNAL(rejected()), this, SLOT(slot_cancel()));
+
+    QObject::connect(m_ui->pushButton_clone_src_test, SIGNAL(clicked(bool)), this, SLOT(slot_testCloneRemote()));
 }
 
 void NewRepoConfigWidget::setNewRepoPage(NewRepoWay way)
 {
     m_ui->tabWidget_root->setCurrentIndex(way);
-//    switch (way) {
-//    case CLONE:
-//        m_ui->tabWidget_root->setCurrentIndex(0);
-//        break;
-//    case WORKING_COPY:
-//        m_ui->tabWidget_root->setCurrentIndex(1);
-//        break;
-//    case LOCAL_FILES:
-//        m_ui->tabWidget_root->setCurrentIndex(2);
-//        break;
-//    default:
-//        break;
-//    }
 }
 
 // SLOTS
@@ -53,4 +44,32 @@ void NewRepoConfigWidget::slot_ok()
 void NewRepoConfigWidget::slot_cancel()
 {
     emit cancelled();
+}
+
+void NewRepoConfigWidget::slot_testCloneRemote()
+{
+    QMessageBox *messageBox = NULL;
+
+    if (m_ui->lineEdit_clone_src->text().length() == 0) {
+        messageBox = new QMessageBox(QMessageBox::Critical, "Error", "Cannot test empty path");
+
+        goto showMessageBox;
+    }
+
+    if (GITLRepo::checkRemoteValidity(m_ui->lineEdit_clone_src->text())) {
+        messageBox = new QMessageBox(QMessageBox::Information, "Success", "Test Remote Successful");
+
+        goto showMessageBox;
+    } else {
+        QString *errMsgPtr;
+        GITLRepo::getLastErrorMessage(&errMsgPtr);
+        messageBox = new QMessageBox(QMessageBox::Critical, "Error", *errMsgPtr);
+        delete errMsgPtr;
+
+        goto showMessageBox;
+    }
+
+    showMessageBox:
+    messageBox->setMinimumSize(QSize(320, 160));
+    messageBox->show();
 }

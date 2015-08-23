@@ -16,7 +16,8 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     repocontrolwidget.cpp \
     gitl_repo.cpp \
-    newrepoconfigwidget.cpp
+    newrepoconfigwidget.cpp \
+    gitl_repo+support.cpp
 
 HEADERS  += mainwindow.h \
     repocontrolwidget.h \
