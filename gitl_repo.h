@@ -9,7 +9,7 @@ public:
     static void initLibrary();
     static void shutdownLibrary();
 
-    static bool checkRemoteValidity(const QString &remoteUrl);
+//    static bool checkRemoteValidity(const QString &remoteUrl);
     static void getLastErrorMessage(QString **errorMsg);
 
     GITLRepo(const QString &name);

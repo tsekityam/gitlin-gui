@@ -26,7 +26,7 @@ void NewRepoConfigWidget::initializeUi()
     QObject::connect(m_ui->buttonBox_ok, SIGNAL(accepted()), this, SLOT(slot_ok()));
     QObject::connect(m_ui->buttonBox_ok, SIGNAL(rejected()), this, SLOT(slot_cancel()));
 
-    QObject::connect(m_ui->pushButton_clone_src_test, SIGNAL(clicked(bool)), this, SLOT(slot_testCloneRemote()));
+//    QObject::connect(m_ui->pushButton_clone_src_test, SIGNAL(clicked(bool)), this, SLOT(slot_testCloneRemote()));
 }
 
 void NewRepoConfigWidget::setNewRepoPage(NewRepoWay way)
@@ -46,7 +46,7 @@ void NewRepoConfigWidget::slot_cancel()
     emit cancelled();
 }
 
-void NewRepoConfigWidget::slot_testCloneRemote()
+/*void NewRepoConfigWidget::slot_testCloneRemote()
 {
     QMessageBox *messageBox = NULL;
 
@@ -72,4 +72,4 @@ void NewRepoConfigWidget::slot_testCloneRemote()
     showMessageBox:
     messageBox->setAttribute(Qt::WA_DeleteOnClose, true);
     messageBox->show();
-}
+}*/

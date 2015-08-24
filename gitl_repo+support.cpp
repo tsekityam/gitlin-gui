@@ -15,12 +15,12 @@ void GITLRepo::shutdownLibrary()
     git_libgit2_shutdown();
 }
 
-bool GITLRepo::checkRemoteValidity(const QString &remoteUrl)
+/*bool GITLRepo::checkRemoteValidity(const QString &remoteUrl)
 {
-
     git_repository *repo = NULL;
     git_remote *remote = NULL;
-//    git_remote_callbacks callbacks = GIT_REMOTE_CALLBACKS_INIT;
+
+    git_remote_callbacks callbacks = GIT_REMOTE_CALLBACKS_INIT;
 
     int err = 0;
 
@@ -32,7 +32,9 @@ bool GITLRepo::checkRemoteValidity(const QString &remoteUrl)
     if (err)
         goto cleanup;
 
-    err = git_remote_connect(remote, GIT_DIRECTION_FETCH, NULL);
+    callbacks.credentials = cred_acquire_cb;
+
+    err = git_remote_connect(remote, GIT_DIRECTION_FETCH, &callbacks);
     if (err)
         goto cleanup;
 
@@ -45,7 +47,7 @@ bool GITLRepo::checkRemoteValidity(const QString &remoteUrl)
     delete errMsg;
 
     return err == 0;
-}
+}*/
 
 void GITLRepo::getLastErrorMessage(QString **errorMsg)
 {

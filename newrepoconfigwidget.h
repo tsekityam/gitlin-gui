@@ -41,7 +41,7 @@ private slots:
     void slot_cancel();
 
     // Clone Page
-    void slot_testCloneRemote();
+//    void slot_testCloneRemote();
 };
 
 #endif // NEWREPOCONFIGWIDGET_H
