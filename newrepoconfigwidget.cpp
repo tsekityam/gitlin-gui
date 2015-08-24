@@ -70,6 +70,6 @@ void NewRepoConfigWidget::slot_testCloneRemote()
     }
 
     showMessageBox:
-    messageBox->setMinimumSize(QSize(320, 160));
+    messageBox->setAttribute(Qt::WA_DeleteOnClose, true);
     messageBox->show();
 }
