@@ -5,6 +5,7 @@
 GITLRepo::GITLRepo(const QString &name)
 {
     _name = name;
+    _repo = NULL;
 
     git_libgit2_init();
 }
@@ -19,8 +20,7 @@ QString *GITLRepo::getName()
     return &_name;
 }
 
-void GITLRepo::clone(const QString &repoUrl, const QString &destPath)
+bool GITLRepo::clone(const QString &repoUrl, const QString &destPath)
 {
-    git_repository *repo = NULL;
-    git_clone(&repo, repoUrl.toUtf8().data(), destPath.toUtf8().data(), NULL);
+    return git_clone(&_repo, repoUrl.toUtf8().data(), destPath.toUtf8().data(), NULL) == 0;
 }

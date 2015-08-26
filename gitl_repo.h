@@ -3,13 +3,14 @@
 
 #include <QString>
 
+struct git_repository;
+
 class GITLRepo
 {
 public:
     static void initLibrary();
     static void shutdownLibrary();
 
-//    static bool checkRemoteValidity(const QString &remoteUrl);
     static void getLastErrorMessage(QString **errorMsg);
 
     GITLRepo(const QString &name);
@@ -17,9 +18,11 @@ public:
 
     QString *getName();
 
-    void clone(const QString &repoUrl, const QString &destPath);
+    bool clone(const QString &repoUrl, const QString &destPath);
 
 private:
+    git_repository *_repo;
+
     QString _name;
 };
 

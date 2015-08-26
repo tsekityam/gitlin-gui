@@ -146,8 +146,7 @@ void MainWindow::addRepoTab(GITLRepo *repo, int newRepoWay)
     QObject::connect(repoTab, SIGNAL(closeRequested(QWidget*)), this, SLOT(slot_closeRepoTab(QWidget*)));
     repoTab->setNewRepoPage((NewRepoWay)newRepoWay);
 
-    const QString *tabTitle = repo->getName();
-    m_ui->contentTabWidget->addTab(repoTab, tabTitle ? *tabTitle : "New Repository");
+    m_ui->contentTabWidget->addTab(repoTab, repo ? *(repo->getName()) : "New Repository");
     m_ui->contentTabWidget->setCurrentWidget(repoTab);
 
     int indexOfStartPage = m_ui->contentTabWidget->indexOf(m_ui->contentTab_start);

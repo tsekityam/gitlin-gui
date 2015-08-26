@@ -1,6 +1,7 @@
 #include "newrepoconfigwidget.h"
 #include "ui_newrepoconfigwidget.h"
 
+#include <QInputDialog>
 #include <QMessageBox>
 
 NewRepoConfigWidget::NewRepoConfigWidget(QWidget *parent) :
@@ -29,6 +30,27 @@ void NewRepoConfigWidget::initializeUi()
 //    QObject::connect(m_ui->pushButton_clone_src_test, SIGNAL(clicked(bool)), this, SLOT(slot_testCloneRemote()));
 }
 
+bool NewRepoConfigWidget::isVaildInput(QString **errMsg)
+{
+    int currentPageIndex = m_ui->tabWidget_root->currentIndex();
+
+    if (currentPageIndex == 0) { // Clone
+        if (m_ui->lineEdit_clone_src->text().length() == 0) {
+            *errMsg = new QString("Clone source path / URL must not be empty.");
+            return false;
+        }
+
+        if (m_ui->lineEdit_clone_dest->text().length() == 0) {
+            *errMsg = new QString("Clone destination path must not be empty.");
+            return false;
+        }
+
+        return true;
+    }
+
+    return true;
+}
+
 void NewRepoConfigWidget::setNewRepoPage(NewRepoWay way)
 {
     m_ui->tabWidget_root->setCurrentIndex(way);
@@ -38,7 +60,42 @@ void NewRepoConfigWidget::setNewRepoPage(NewRepoWay way)
 
 void NewRepoConfigWidget::slot_ok()
 {
+    int currentPageIndex;
+    bool success;
 
+    QString repoName;
+    GITLRepo *repo;
+    QString *errMsg = NULL;
+
+    success = isVaildInput(&errMsg);
+    if (!success)
+        goto error;
+
+    repoName = QInputDialog::getText(this, "Input Repository Name", "Repository Name", QLineEdit::Normal, "", &success);
+    if (!success)
+        goto error;
+
+    repo = new GITLRepo(repoName);
+    currentPageIndex = m_ui->tabWidget_root->currentIndex();
+    if (currentPageIndex == 0) { // Clone
+        success = repo->clone(m_ui->lineEdit_clone_src->text(), m_ui->lineEdit_clone_dest->text());
+    }
+    if (!success) {
+        GITLRepo::getLastErrorMessage(&errMsg);
+        goto error;
+    }
+
+    emit repoCreated(repo);
+    return;
+
+    error:
+    if (errMsg) {
+        QMessageBox *messageBox = new QMessageBox(QMessageBox::Critical, "Error", *errMsg);
+        messageBox->setAttribute(Qt::WA_DeleteOnClose, true);
+        messageBox->exec();
+
+        delete errMsg;
+    }
 }
 
 void NewRepoConfigWidget::slot_cancel()

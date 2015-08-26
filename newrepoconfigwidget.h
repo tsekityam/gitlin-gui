@@ -32,6 +32,8 @@ private:
 
     void initializeUi();
 
+    bool isVaildInput(QString **errMsg = NULL);
+
 signals:
     void repoCreated(GITLRepo *repo);
     void cancelled();
